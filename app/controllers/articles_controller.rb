@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  
+  http_basic_authenticate_with name:"root", password:"root", except: [:index, :show]
+  
   def index
 
     @articles = Article.all
@@ -20,7 +23,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
     
     else
-      render :new, status:unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,7 +33,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      render :edit, status:unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 

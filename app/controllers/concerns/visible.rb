@@ -9,7 +9,7 @@ module Visible
 
     class_methods do
         def public_count
-            where(status: 'public').count
+          where(status: 'public').count
         end
     end
 
