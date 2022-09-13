@@ -2,6 +2,12 @@
 <p>Find me in app/views/articles/index.html.erb</p> %>
 <%# <h1>Hello, Rails</h1> %>
 
+
+
+<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<li><%= link_to 'Sign In', new_user_session_path %></li>
+<li><%= link_to 'Sign Up', new_user_registration_path %></li>
+
 <h1>Articles</h1>
 
 Our Blog has <%= Article.public_count %> articles and counting!
@@ -16,5 +22,6 @@ Our Blog has <%= Article.public_count %> articles and counting!
         <% end %>
     <% end %>
 </ul>
-
-<%= link_to "New Article", new_article_path %>
+<% if current_user %>
+    <%= link_to "New Article", new_article_path %>
+<% end %>
