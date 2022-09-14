@@ -20,6 +20,8 @@
     <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
   </div>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
   <div>
     <%= form.submit %>
   </div>
