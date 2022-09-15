@@ -8,9 +8,12 @@
   </ul>
 <% end %>
 
-<h2>Comments </h2>
-<%= render @article.comments %>
-<% if current_user %>
-  <h2>Add a comment: </h2>
-  <%= render 'comments/form' %>
+
+<% if user_signed_in? %>
+  <h2>Comments </h2>
+  <%= render @article.comments %>
+  <% if current_user %>
+    <h2>Add a comment: </h2>
+    <%= render 'comments/form' %>
+  <% end %>
 <% end %>

@@ -6,9 +6,10 @@
 
 
 
-
-
-<h1>Articles</h1>
+<% if user_signed_in? %>
+    Hi <%= current_user.user_name%>
+<% end %>
+<h3>Articles</h3>
 
 Our Blog has <%= Article.public_count %> articles and counting!
 

@@ -9,11 +9,12 @@
         <strong>Comment:</strong>
         <%= comment.body %>
     </p>
-    <% if current_user %>
+    <% if current_user.id == comment.user_id %>
         <p>
             <%= link_to "Destroy Comment", [comment.article,comment], data: 
                         {turbo_method: :delete,
                         turbo_confirm: "Are you sure?" }%>
+            <%= link_to "Edit", edit_article_comment_url(comment.article, comment)   ,remote: true %>            
         </p>
     <% end %>
 <% end %>

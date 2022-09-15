@@ -1,5 +1,4 @@
-<% if current_user %>
-  <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+<%= form_with model: [ article,comment ] do |form| %>
     <p>
       <%= form.label :commenter, current_user.user_name %><br>
       <%= form.hidden_field :commenter, :value => current_user.user_name %>
@@ -21,4 +20,3 @@
       <%= form.submit %>
     </p>
   <% end %>
-<% end %>

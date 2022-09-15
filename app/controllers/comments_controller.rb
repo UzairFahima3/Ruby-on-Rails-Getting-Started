@@ -9,6 +9,30 @@ class CommentsController < ApplicationController
         redirect_to article_path(@article)
     end
 
+    def edit
+        @article = Article.find(params[:article_id])
+        # @article.user_id = user_id
+        @comment = @article.comments.find(params[:id])
+        # @article.
+        # @article.comments.update(comment_param)
+        # redirect_to article_path(@article)
+
+        # else
+        #   render :edit, status: :unprocessable_entity
+        # end
+     end
+
+    def update
+        @article = Article.find(params[:article_id])
+        @comment = @article.comments.find(params[:id])  
+        if @comment.update(comment_param)
+            redirect_to article_path(@article)
+        else
+          render :edit, status: :unprocessable_entity
+        end
+    end
+
+
     def destroy
         @article = Article.find(params[:article_id])
         @comment = @article.comments.find(params[:id])
@@ -17,7 +41,7 @@ class CommentsController < ApplicationController
     end
 
     private
-        def comment_param
-            params.require(:comment).permit(:commenter, :body, :status, :user_id)
-        end
+    def comment_param
+        params.require(:comment).permit(:commenter, :body, :status, :user_id)
+    end
 end
