@@ -23,6 +23,11 @@
   <%= form.hidden_field :user_id, :value => current_user.id %>
 
   <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image%><br>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
