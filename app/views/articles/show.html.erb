@@ -1,6 +1,6 @@
 <h1> <%= @article.title %> </h1>
 <p> <%= @article.body %> </p>
-<p> <%=image_tag @article.image%></p>
+<p> <%=image_tag @article.image, style: "height:200px; width: 450px; display: block"%></p>
 
 <% if user_signed_in? and current_user.id == @article.user_id %>
   <ul>
