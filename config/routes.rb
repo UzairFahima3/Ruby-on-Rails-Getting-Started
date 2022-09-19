@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   root "articles#index"
   # get "/articles",to: "articles#index"
   # get "/articles/:id", to: "articles#show"
+  # post "articles/edit"
   resources :articles do
+    # get "articles#:id#edit", to: "articles"
     resources :comments
   end
 end

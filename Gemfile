@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem 'devise'
 
 gem 'decent_exposure'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

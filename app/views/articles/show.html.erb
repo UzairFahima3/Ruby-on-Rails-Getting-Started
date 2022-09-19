@@ -1,21 +1,21 @@
-<h1> <%= @article.title %> </h1>
-<p> <%= @article.body %> </p>
+<h1> <%= article.title %> </h1>
+<p> <%= article.body %> </p>
 
-<% if @article.image.present?%>
-    <p> <%=image_tag @article.image, style: "height:200px; width: 450px; display: block"%></p>
+<% if article.image.present?%>
+    <p> <%=image_tag article.image, style: "height:200px; width: 450px; display: block"%></p>
 <% end %>
 
-<% if user_signed_in? and current_user.id == @article.user_id %>
+<% if user_signed_in? and current_user.id == article.user_id %>
   <ul>
-    <li><%= link_to "Edit", edit_article_path(@article) %></li>
-    <li> <%= link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %> </li>
+    <li><%= link_to "Edit", edit_article_path(article) %></li>
+    <li> <%= link_to "Destroy", article_path(article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %> </li>
   </ul>
 <% end %>
 
 
 <% if user_signed_in? %>
   <h2>Comments </h2>
-  <%= render @article.comments %>
+  <%= render article.comments %>
   <% if current_user %>
     <h2>Add a comment: </h2>
     <%= render 'comments/form' %>
